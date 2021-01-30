@@ -23,12 +23,12 @@ public class MeshGenerator : MonoBehaviour
 
     public void BuildTriangle(Vector3 p0, Vector3 p1, Vector3 p2, int subMesh)
     {
-        // 4. index of each vertex within the list of vertices
+        // 2. index of each vertex within the list of vertices
         int p0Index = vertices.Count;
         int p1Index = vertices.Count + 1;
         int p2Index = vertices.Count + 2;
 
-        //5. add the index of each vertex to the indices
+        //3. add the index of each vertex to the indices
         indices.Add(p0Index);
         indices.Add(p1Index);
         indices.Add(p2Index);
