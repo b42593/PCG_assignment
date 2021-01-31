@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MeshGenerator : MonoBehaviour
 {
+    private List<Vector3> normals = new List<Vector3>(); // this defines the direction of each vertex
+
+    private List<Vector2> uvs = new List<Vector2>(); // store the coordinates of our uvs
 
     private List<Vector3> vertices = new List<Vector3>(); //list of vertices - store our points in our mesh
 
@@ -23,12 +26,18 @@ public class MeshGenerator : MonoBehaviour
 
     public void BuildTriangle(Vector3 p0, Vector3 p1, Vector3 p2, int subMesh)
     {
-        // 2. index of each vertex within the list of vertices
+        Vector3 normal = Vector3.Cross(p1 - p0, p2 - p0).normalized;
+        BuildTriangle(p0, p1, p2, normal, subMesh);
+    }
+
+    public void BuildTriangle(Vector3 p0, Vector3 p1, Vector3 p2, Vector3 normal, int subMesh)
+    {
+        // 4. index of each vertex within the list of vertices
         int p0Index = vertices.Count;
         int p1Index = vertices.Count + 1;
         int p2Index = vertices.Count + 2;
 
-        //3. add the index of each vertex to the indices
+        //5. add the index of each vertex to the indices
         indices.Add(p0Index);
         indices.Add(p1Index);
         indices.Add(p2Index);
@@ -42,6 +51,16 @@ public class MeshGenerator : MonoBehaviour
         vertices.Add(p0);
         vertices.Add(p1);
         vertices.Add(p2);
+
+        //2. add normals to our normals list
+        normals.Add(normal);
+        normals.Add(normal);
+        normals.Add(normal);
+
+        //3. Add each UV coordinate to our UV list
+        uvs.Add(new Vector2(0, 0));
+        uvs.Add(new Vector2(0, 1));
+        uvs.Add(new Vector2(1, 1));
 
     }
 

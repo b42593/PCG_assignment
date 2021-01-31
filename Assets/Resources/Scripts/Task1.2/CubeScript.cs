@@ -12,7 +12,7 @@ public class CubeScript : MonoBehaviour
     public int meshSize = 6;
     public void GenerateCube()
     {
-        cubeSize = this.gameObject.GetComponent<MeshController>().size;
+        cubeSize = this.gameObject.GetComponent<MeshController>().dimensions;
 
         //1. initialise MeshFilter
         MeshFilter meshFilter = this.GetComponent<MeshFilter>();

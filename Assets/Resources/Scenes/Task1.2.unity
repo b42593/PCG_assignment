@@ -123,35 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!21 &41380650
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Legacy Shaders/Specular
-  m_Shader: {fileID: 3, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _Shininess: 0.078125
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &105536211
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,7 +274,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -320,14 +291,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 258605091}
-  m_LocalRotation: {x: 0.5915298, y: 0.6607402, z: -0.09841816, w: 0.45147398}
-  m_LocalPosition: {x: -6.55, y: 4.55, z: -8.215}
+  m_LocalRotation: {x: 0.5048163, y: 0.30238107, z: 0.45837224, w: 0.66604894}
+  m_LocalPosition: {x: -7.21, y: 8.52, z: -8.215}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 41.619, y: 140.035, z: 67.937}
---- !u!43 &378534951
+  m_LocalEulerAnglesHint: {x: 23.282, y: 70.445, z: 85.623}
+--- !u!43 &915132429
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -344,8 +315,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 6
     localAABB:
-      m_Center: {x: 0, y: 1, z: 0}
-      m_Extent: {x: 1, y: 0, z: 1}
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0, y: 0, z: 0}
   - serializedVersion: 2
     firstByte: 12
     indexCount: 6
@@ -354,8 +325,8 @@ Mesh:
     firstVertex: 6
     vertexCount: 6
     localAABB:
-      m_Center: {x: 0, y: -1, z: 0}
-      m_Extent: {x: 1, y: 0, z: 1}
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0, y: 0, z: 0}
   - serializedVersion: 2
     firstByte: 24
     indexCount: 6
@@ -364,8 +335,8 @@ Mesh:
     firstVertex: 12
     vertexCount: 6
     localAABB:
-      m_Center: {x: 0, y: 0, z: -1}
-      m_Extent: {x: 1, y: 1, z: 0}
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0, y: 0, z: 0}
   - serializedVersion: 2
     firstByte: 36
     indexCount: 6
@@ -374,8 +345,8 @@ Mesh:
     firstVertex: 18
     vertexCount: 6
     localAABB:
-      m_Center: {x: -1, y: 0, z: 0}
-      m_Extent: {x: 0, y: 1, z: 1}
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0, y: 0, z: 0}
   - serializedVersion: 2
     firstByte: 48
     indexCount: 6
@@ -384,8 +355,8 @@ Mesh:
     firstVertex: 24
     vertexCount: 6
     localAABB:
-      m_Center: {x: 0, y: 0, z: 1}
-      m_Extent: {x: 1, y: 1, z: 0}
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0, y: 0, z: 0}
   - serializedVersion: 2
     firstByte: 60
     indexCount: 6
@@ -394,8 +365,8 @@ Mesh:
     firstVertex: 30
     vertexCount: 6
     localAABB:
-      m_Center: {x: 1, y: 0, z: 0}
-      m_Extent: {x: 0, y: 1, z: 1}
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0, y: 0, z: 0}
   m_Shapes:
     vertices: []
     shapes: []
@@ -474,7 +445,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 864
-    _typelessdata: 0000803f0000803f000080bf000000000000803f00000000000080bf0000803f000080bf000000000000803f00000000000080bf0000803f0000803f000000000000803f000000000000803f0000803f000080bf000000000000803f00000000000080bf0000803f0000803f000000000000803f000000000000803f0000803f0000803f000000000000803f00000000000080bf000080bf0000803f00000000000080bf00000000000080bf000080bf000080bf00000000000080bf000000000000803f000080bf000080bf00000000000080bf000000000000803f000080bf0000803f00000000000080bf00000000000080bf000080bf0000803f00000000000080bf000000000000803f000080bf000080bf00000000000080bf000000000000803f000080bf000080bf0000000000000000000080bf000080bf0000803f000080bf0000000000000000000080bf0000803f0000803f000080bf0000000000000000000080bf0000803f000080bf000080bf0000000000000000000080bf000080bf000080bf000080bf0000000000000000000080bf000080bf0000803f000080bf0000000000000000000080bf000080bf000080bf000080bf000080bf0000000000000000000080bf0000803f0000803f000080bf0000000000000000000080bf0000803f000080bf000080bf0000000000000000000080bf000080bf000080bf000080bf0000000000000000000080bf000080bf0000803f000080bf0000000000000000000080bf0000803f0000803f000080bf0000000000000000000080bf000080bf0000803f00000000000000000000803f0000803f0000803f0000803f00000000000000000000803f000080bf0000803f0000803f00000000000000000000803f000080bf000080bf0000803f00000000000000000000803f0000803f000080bf0000803f00000000000000000000803f0000803f0000803f0000803f00000000000000000000803f0000803f000080bf0000803f0000803f00000000000000000000803f0000803f000080bf0000803f00000000000000000000803f0000803f0000803f0000803f00000000000000000000803f000080bf0000803f0000803f00000000000000000000803f000080bf000080bf0000803f00000000000000000000803f0000803f000080bf0000803f0000000000000000
+    _typelessdata: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -529,7 +500,7 @@ Mesh:
     m_UVInfo: 0
   m_LocalAABB:
     m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 1, y: 1, z: 1}
+    m_Extent: {x: 0, y: 0, z: 0}
   m_MeshUsageFlags: 0
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
@@ -554,6 +525,8 @@ GameObject:
   - component: {fileID: 939657025}
   - component: {fileID: 939657024}
   - component: {fileID: 939657023}
+  - component: {fileID: 939657028}
+  - component: {fileID: 939657029}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
@@ -587,9 +560,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   removeMesh: 0
-  genCube: 1
-  size: {x: 1, y: 1, z: 1}
-  faces: 020000000300000004000000050000000100000007000000
+  genCube: 0
+  genPlane: 0
+  genPyramid: 0
+  dimensions: {x: 1, y: 1, z: 1}
+  size: 1
+  faces: 
   colors:
   - {r: 0, g: 1, b: 0, a: 1}
   - {r: 1, g: 0, b: 0, a: 1}
@@ -618,12 +594,10 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 41380650}
-  - {fileID: 1622292869}
-  - {fileID: 1371893482}
-  - {fileID: 1743533831}
-  - {fileID: 1111569401}
-  - {fileID: 1879233493}
+  - {fileID: 1091644431}
+  - {fileID: 1843426283}
+  - {fileID: 1142075769}
+  - {fileID: 1987587812}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -652,7 +626,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 939657022}
-  m_Mesh: {fileID: 378534951}
+  m_Mesh: {fileID: 915132429}
 --- !u!4 &939657027
 Transform:
   m_ObjectHideFlags: 0
@@ -667,7 +641,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1111569401
+--- !u!114 &939657028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939657022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c674e1ddc5f11c241b9917ef5b3630d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subMeshSize: 6
+--- !u!114 &939657029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939657022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06bc6cf1ec737e54dafdc149f5166044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subMeshSize: 4
+--- !u!21 &1091644431
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -696,36 +696,7 @@ Material:
     - _Color: {r: 1, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_BuildTextureStacks: []
---- !u!21 &1371893482
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Legacy Shaders/Specular
-  m_Shader: {fileID: 3, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _Shininess: 0.078125
-    m_Colors:
-    - _Color: {r: 0, g: 1, b: 1, a: 1}
-    - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_BuildTextureStacks: []
---- !u!21 &1622292869
+--- !u!21 &1142075769
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -754,7 +725,7 @@ Material:
     - _Color: {r: 0, g: 0, b: 1, a: 1}
     - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_BuildTextureStacks: []
---- !u!21 &1743533831
+--- !u!21 &1843426283
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -780,10 +751,10 @@ Material:
     m_Floats:
     - _Shininess: 0.078125
     m_Colors:
-    - _Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_BuildTextureStacks: []
---- !u!21 &1879233493
+--- !u!21 &1987587812
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -809,6 +780,6 @@ Material:
     m_Floats:
     - _Shininess: 0.078125
     m_Colors:
-    - _Color: {r: 0.9309864, g: 1, b: 0, a: 1}
+    - _Color: {r: 0, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_BuildTextureStacks: []
