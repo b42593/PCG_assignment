@@ -9,13 +9,15 @@ public class PlaneScript : MonoBehaviour
     private float cellSize;
 
 
-    [SerializeField] public int subMeshSize = 6;
+    private int subMeshSize;
 
 
     private int width;
     private int height;
     public void GeneratePlane() 
     {
+        subMeshSize = this.gameObject.GetComponent<MeshController>().subMeshsize;
+
         cellSize = this.gameObject.GetComponent<MeshController>().size;
 
         if (this.gameObject.GetComponent<MeshController>().dimensions.x <= 1) 

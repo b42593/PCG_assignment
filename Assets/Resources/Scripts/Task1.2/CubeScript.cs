@@ -8,10 +8,11 @@ public class CubeScript : MonoBehaviour
 
     private Vector3 cubeSize;
 
-    [SerializeField]
-    public int meshSize = 6;
+    private int meshSize;
     public void GenerateCube()
     {
+        meshSize = this.gameObject.GetComponent<MeshController>().subMeshsize;
+
         cubeSize = this.gameObject.GetComponent<MeshController>().dimensions;
 
         //1. initialise MeshFilter

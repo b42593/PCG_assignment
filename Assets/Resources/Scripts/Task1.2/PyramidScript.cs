@@ -8,10 +8,12 @@ public class PyramidScript : MonoBehaviour
 
     private float pyramidSize;
 
-    [SerializeField] public int subMeshSize = 4;
+    private int subMeshSize;
 
     public void GeneratePyramid() 
     {
+        subMeshSize = this.gameObject.GetComponent<MeshController>().subMeshsize;
+
         pyramidSize = this.gameObject.GetComponent<MeshController>().size;
 
         MeshFilter meshFilter = this.GetComponent<MeshFilter>();
