@@ -1,26 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(MeshFilter))]
 [RequireComponent(typeof(MeshRenderer))]
 [RequireComponent(typeof(MeshCollider))]
 
-
-[ExecuteInEditMode]
 public class RoadScript : MonoBehaviour
 {
     [SerializeField]
-    private float radius = 30f; // this defines the radius of the path
+    private float radius; // this defines the radius of the path
 
     [SerializeField]
-    private float segments = 300f;
+    private float segments;
 
     [SerializeField]
-    private float lineWidth = 0.3f; // middle white line road marker
+    private float lineWidth = 0.5f; // middle white line road marker
 
     [SerializeField]
-    private float roadWidth = 8f; // width of the road on each side of the line
+    private float roadWidth = 10f; // width of the road on each side of the line
 
     [SerializeField]
     private float edgeWidth = 1f; // widht of our road barrier at the edge of our road
@@ -31,10 +30,10 @@ public class RoadScript : MonoBehaviour
     private int submeshSize = 6;
 
     [SerializeField]
-    private float wavyness = 5f;
+    private float wavyness = 90f;
 
     [SerializeField]
-    private float waveScale = 0.1f;
+    private float waveScale = 2.5f;
 
     [SerializeField]
     private Vector2 waveOffset;
@@ -51,26 +50,25 @@ public class RoadScript : MonoBehaviour
     [SerializeField]
     private GameObject car;
 
+    private GameObject startWaypoint, waypoint, waypoints;
 
+    public List<Vector3> points;
 
     private List<Material> materialList;
 
     private Color[] colors = { Color.green, Color.red, Color.white, Color.blue, Color.cyan, Color.black, Color.grey };
 
-    [Header("Enabler")]
-    [SerializeField] public bool genTrack = false;
+    private int randomStepSize;
 
-    private void OnValidate()
-    {
-        if (genTrack)
-        {
-            GenerateRoad();
-            genTrack = false;
-        }
-    }
+    GameManager gm;
+
 
     public void GenerateRoad()
     {
+        radius = Random.Range(90, 200);
+        segments = Random.Range(300, 500);
+        waveOffset.x = Random.Range(10, 100);
+        waveOffset.y = Random.Range(10, 100);
 
         car = Resources.Load<GameObject>("StandardAssets/Vehicles/Car/Prefabs/Car");
 
@@ -85,7 +83,8 @@ public class RoadScript : MonoBehaviour
         //   Create the points and store them in a list
         float segmentDegrees = 360f / segments;
 
-        List<Vector3> points = new List<Vector3>();
+        //List<Vector3> points = new List<Vector3>();
+        points = new List<Vector3>();
 
         for (float degrees = 0; degrees < 360f; degrees += segmentDegrees)
         {
@@ -124,9 +123,15 @@ public class RoadScript : MonoBehaviour
             ExtrudeRoad(meshGenerator, pPrev, pCurr, pNext);
         }
 
-        car.transform.position = points[0];
-        car.transform.LookAt(points[1]);
+        
+        car.transform.position = points[points.Count - 15];
+        car.transform.LookAt(points[0]);
 
+        Instantiate(car, car.transform.position, Quaternion.LookRotation(new Vector3 (90f,0f,0f)));
+
+        GenerateWaypoints();
+
+     
 
         meshFilter.mesh = meshGenerator.CreateMesh();
 
@@ -240,6 +245,51 @@ public class RoadScript : MonoBehaviour
 
 
 
+    //Generate Waypoints
+    private void GenerateWaypoints() 
+    {
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        waypoints = new GameObject("Waypoints");
+        waypoints.transform.position = new Vector3(0, 0, 0);
+
+        GenerateStartWaypoints();
+        GenerateOtherWaypoints();
+
+        gm.waypointReference = GameObject.FindGameObjectsWithTag("Waypoints");
+    }
+
+
+    private void GenerateOtherWaypoints()
+    {
+        for (int x = 30; x < points.Count; x += 30) 
+        {
+            waypoint = new GameObject("Waypoint");
+            waypoint.AddComponent<BoxCollider>();
+            waypoint.AddComponent<WaypointsCollisionScript>();
+            waypoint.GetComponent<BoxCollider>().size = new Vector3(20f, 1f, 20f);
+            waypoint.GetComponent<BoxCollider>().isTrigger = true;
+            waypoint.transform.position = new Vector3(points[x].x, 1, points[x].z);
+            waypoint.tag = "Waypoints";
+            waypoint.transform.SetParent(waypoints.transform);
+        }
+        
+    }
+
+
+    private void GenerateStartWaypoints() 
+    {
+        startWaypoint = new GameObject("StartWaypoint");
+        startWaypoint.AddComponent<BoxCollider>();
+        startWaypoint.AddComponent<WaypointsCollisionScript>();
+        startWaypoint.GetComponent<BoxCollider>().size = new Vector3(20f, 1f, 20f);
+        startWaypoint.GetComponent<BoxCollider>().isTrigger = true;
+        startWaypoint.transform.position = new Vector3(points[0].x, 1, points[0].z);
+        startWaypoint.tag = "Waypoints";
+        startWaypoint.transform.SetParent(waypoints.transform);
+    }
+    
+
     public void AddMaterials()
     {
         MeshRenderer meshRenderer = this.GetComponent<MeshRenderer>();
@@ -266,4 +316,6 @@ public class RoadScript : MonoBehaviour
         meshRenderer.materials = materialList.ToArray();
     }
 
+
+   
 }
