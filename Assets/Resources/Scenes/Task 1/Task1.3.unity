@@ -311,6 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 163113e2298941c4cb47054866b42ed0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  removeMaze: 0
-  genMaze: 0
   colorchoice: 0
+  startPos: 0
+  endPos: 0
+  player: {fileID: 100006, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 3}

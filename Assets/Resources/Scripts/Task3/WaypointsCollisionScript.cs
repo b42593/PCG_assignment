@@ -16,16 +16,15 @@ public class WaypointsCollisionScript : MonoBehaviour
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         rs = GameObject.Find("Road").GetComponent<RoadScript>();
-
         checkPointTxtManager = GameObject.Find("Canvas").GetComponent<CanvasScript>();
 
         checkPointTxtManager.checkpointTxt.text = "Checkpoints: " + gm.wayPointCount + " / " + gm.waypointReference.Length;
+
 
         for (int counter = gm.wayPointCount; counter < gm.waypointReference.Length; counter++)
         {
             gm.waypointReference[counter].SetActive(false); 
             gm.waypointReference[gm.wayPointCount].gameObject.SetActive(true);
-
         }
     }
 
