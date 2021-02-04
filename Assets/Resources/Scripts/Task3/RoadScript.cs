@@ -50,7 +50,7 @@ public class RoadScript : MonoBehaviour
     [SerializeField]
     private GameObject car;
 
-    private GameObject startWaypoint, waypoint, waypoints;
+    private GameObject startWaypoint, waypoint, waypoints, checkpointMesh;
 
     public List<Vector3> points;
 
@@ -271,7 +271,10 @@ public class RoadScript : MonoBehaviour
             waypoint.GetComponent<BoxCollider>().isTrigger = true;
             waypoint.transform.position = new Vector3(points[x].x, 1, points[x].z);
             waypoint.tag = "Waypoints";
+            GenerateWaypointMesh();
+            checkpointMesh.transform.position = new Vector3(points[x].x, 10, points[x].z);
             waypoint.transform.SetParent(waypoints.transform);
+            checkpointMesh.transform.SetParent(waypoint.transform);
         }
         
     }
@@ -286,9 +289,23 @@ public class RoadScript : MonoBehaviour
         startWaypoint.GetComponent<BoxCollider>().isTrigger = true;
         startWaypoint.transform.position = new Vector3(points[0].x, 1, points[0].z);
         startWaypoint.tag = "Waypoints";
+        GenerateWaypointMesh();
+        checkpointMesh.transform.position = new Vector3(points[0].x, 10, points[0].z);
         startWaypoint.transform.SetParent(waypoints.transform);
+        checkpointMesh.transform.SetParent(startWaypoint.transform);
+
     }
-    
+
+
+    public void GenerateWaypointMesh() 
+    {
+        checkpointMesh = new GameObject("WaypointMesh");
+        checkpointMesh.AddComponent<WallScript>();
+        checkpointMesh.GetComponent<WallScript>().size = new Vector3(1f, 1f, 1f);
+        checkpointMesh.GetComponent<WallScript>().GenerateWall();
+        checkpointMesh.GetComponent<WallScript>().AddMaterials(1);
+    }
+
 
     public void AddMaterials()
     {

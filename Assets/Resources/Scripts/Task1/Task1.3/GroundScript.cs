@@ -14,7 +14,7 @@ public class GroundScript : MonoBehaviour
     private Color[] colors = { Color.green, Color.red, Color.white, Color.blue, Color.cyan, Color.black, Color.grey };
 
     [SerializeField]
-    private float cellSize = 1f;
+    public float cellSize = 1f;
 
     [SerializeField]
     public int width = 20;

@@ -15,7 +15,7 @@ public class WallScript : MonoBehaviour
 
     private List<Material> materialsList;
 
-    private Color[] colors = { Color.green, Color.red, Color.white, Color.blue, Color.cyan, Color.black, Color.grey };
+    public Color[] colors = { Color.green, Color.red, Color.white, Color.blue, Color.cyan, Color.black, Color.grey };
 
 
     // Update is called once per frame
