@@ -329,7 +329,7 @@ public class MazeController : MonoBehaviour
             startPos = UnityEngine.Random.Range(0, 4);
             endPos = UnityEngine.Random.Range(0, 4);
         }
-        while (startPos == endPos);       
+        while (startPos == endPos || (startPos == 2 && endPos == 0));       
     }
 
 
