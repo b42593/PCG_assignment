@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Resources/Scenes/Task2/Task2.unity
+- path: Assets/Resources/Scenes/Task3/Level1.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
